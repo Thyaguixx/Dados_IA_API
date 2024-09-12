@@ -1,0 +1,2 @@
+from langchain.prompts import ChatPromptTemplate
+from langchain_google_genai import GoogleGenerativeAI
