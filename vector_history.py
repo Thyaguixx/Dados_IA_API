@@ -18,17 +18,6 @@ nltk.download('stopwords')
 nlp = spacy.load("pt_core_news_sm")
 
 nltk_stopwords = set(stopwords.words('portuguese'))
-
-# Palavras a serem removidas das stopwords
-palavras_para_manter = {
-    'não', 'nunca', 'nenhum', 'eu', 'você', 'nosso', 'nossa', 
-    'meu', 'minha', 'este', 'esta', 'esse', 'essa', 'aquele', 
-    'aquilo', 'isso', 'mas', 'e', 'ou'
-}
-
-# Atualiza a lista de stopwords
-nltk_stopwords = nltk_stopwords - palavras_para_manter
-
 punctuation_table = str.maketrans('', '', string.punctuation)
 
 def preprocess_text(text):
@@ -88,7 +77,7 @@ def dataset_to_vector(dataset_name, use_saved_embeddings=False):
         dataset = dataset.fillna("Informação não disponível")
         
         dataset = dataset.drop_duplicates(subset=['reviewer_id'])
-        dataset = dataset.head(100)  #dataset = dataset.select(range(min(len(dataset), 1000)))  # Limitar a 4000 itens
+        dataset = dataset.head(1000)  #dataset = dataset.select(range(min(len(dataset), 1000)))  # Limitar a 4000 itens
 
         print(f"Total de itens no dataset: {len(dataset)}")
 

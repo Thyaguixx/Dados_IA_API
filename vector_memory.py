@@ -54,8 +54,8 @@ def search_similar_question(index, user_input_vector):
         if D[0][0] < 0.5:  # Se encontrar uma correspondência com distância menor que 0.5 (limite arbitrário)
             similar_question = message_history[I[0][0]].content
             similar_answer = message_history[I[0][0] + 1].content  # Supondo que a resposta segue a pergunta
-            print(f"Memória: Lembrei-me de uma pergunta anterior semelhante: {similar_question}")
-            print(f"Resposta anterior: {similar_answer}")
+            # print(f"Memória: Lembrei-me de uma pergunta anterior semelhante: {similar_question}")
+            # print(f"Resposta anterior: {similar_answer}")
 
 def add_vector_to_index(index, user_input_vector):
     """Adiciona o vetor ao índice FAISS"""
