@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from langchain.prompts import ChatPromptTemplate
 from langchain.chains.combine_documents import create_stuff_documents_chain
@@ -14,6 +15,14 @@ logger = logging.getLogger(__name__)
 
 # Inicializando o FastAPI
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Altere para os domínios permitidos
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 class QuestionRequest(BaseModel):
     question: str
